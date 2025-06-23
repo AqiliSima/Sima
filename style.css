@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: radial-gradient(circle at top, #ffe0f0, #f9b6d2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+  background: rgba(255, 240, 250, 0.7);
+  backdrop-filter: blur(8px);
+  border: 2px solid #ffcce0;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #d63384;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px #fff0f6;
+}
+
+input, textarea {
+  width: 280px;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  border: 1.5px solid #f5a8c6;
+  font-size: 16px;
+  background-color: #fff0f6;
+  color: #5a2a41;
+  outline: none;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+.hint {
+  font-size: 13px;
+  font-style: italic;
+  color: #c94f7c;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff4fa3;
+  transform: scale(1.05);
+}
+
+/* Cute hearts background */
+body::before {
+  content: "💖 💕 🌸 ✨ 💫 💓";
+  font-size: 50px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-20px); }
+}
