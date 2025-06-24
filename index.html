@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
- 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leave your Message</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -20,6 +18,47 @@
     </form>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <script>
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyANTmJD6cZUH3StOo8wSMWkqibt1fZWrJ0",
+      authDomain: "sima-8c923.firebaseapp.com",
+      databaseURL: "https://sima-8c923-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "sima-8c923",
+      storageBucket: "sima-8c923.appspot.com",
+      messagingSenderId: "391889904494",
+      appId: "1:391889904494:web:ba843d80a382d72569977f",
+      measurementId: "G-J2D4LP27TV"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Handle form submit
+    document.getElementById("messageForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value || "Anonymous";
+      const message = document.getElementById("message").value;
+
+      // Save to Firebase
+      db.ref("messages").push({
+        name: name,
+        message: message,
+        timestamp: Date.now()
+      });
+
+      // Clear form
+      document.getElementById("messageForm").reset();
+
+      // Optional: show thank-you alert
+      alert("Thanks for your message!");
+    });
+  </script>
 </body>
 </html>
