@@ -74,15 +74,17 @@ button:hover {
 /* Cute hearts background */
 body::before {
   content: "💖 💕 🌸 ✨ 💫 💓";
-  font-size: 50px;
+  font-size: 100px;
   position: absolute;
-  top: 10%;
+  top: 1%; /* ⬆️ Moved higher */
   left: 50%;
   transform: translateX(-50%);
   animation: float 6s ease-in-out infinite;
   opacity: 0.3;
   z-index: 0;
 }
+
+
 
 @keyframes float {
   0%, 100% { transform: translateX(-50%) translateY(0); }
